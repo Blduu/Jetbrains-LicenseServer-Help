@@ -1,0 +1,76 @@
+# IDE configuration
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Compiled output
+target/
+bin/
+
+# Maven
+.mvn/
+*.versionsBackup
+
+# Certificate and keys
+**/*.key
+**/*.pem
+**/*.cer
+
+# Logs
+logs/
+*.log
+
+# Local configuration files
+**/application-local.yml
+**/application-dev.yml
+**/application-prod.yml
+**/*.properties.local
+
+# OS generated files
+.DS_Store
+Thumbs.db
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+
+# IDE-specific files
+.gradle/
+.classpath
+.project
+.settings/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build files
+dist/
+build/
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+*.bak
+*.orig
+*.rej
+*.swo

@@ -1,0 +1,24 @@
+version: '3.8' # 适配新版 Docker Compose 语法
+
+services:
+  qiumo-jetbrains-help:
+    build:
+      context: . # 指定 Dockerfile 所在目录
+      dockerfile: Dockerfile # 显式指定 Dockerfile 文件名
+    image: bluesky-jetbrains-licenseserver-help:latest
+    container_name: Jetbrains-LicenseServer-Help
+    restart: always # 容器异常退出时自动重启
+    environment:
+      - XBASE64_DOMAIN=BlueSky.cc # 业务环境变量（覆盖 Dockerfile 中的默认值）
+      - TZ=Asia/Shanghai # 显式指定时区，避免容器时区不一致
+    ports:
+      - "10768:10768" # 宿主机端口:容器端口（保持原有映射）
+    volumes:
+      - ./external:/app/external # 外部配置/文件挂载
+      - ./logs:/app/logs # 日志目录挂载（匹配 logback 中的 LOG_HOME 路径）
+    # 可选：限制容器资源，避免占用过多主机资源
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1024M
