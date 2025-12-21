@@ -18,7 +18,7 @@ We welcome various forms of contributions, including but not limited to:
 
 If you find a bug or have a feature suggestion, you can report it through the following steps:
 
-1. First, search in the [Issue](https://github.com/yourusername/Jetbrains-LicenseServer-Help/issues) page to see if someone has already reported the same issue
+1. First, search in the [Issue](https://github.com/Blduu/Jetbrains-LicenseServer-Help/issues) page to see if someone has already reported the same issue
 2. If no relevant issue is found, create a new Issue with the following information:
    - Issue description: Clearly and detailedly describe the problem you encountered
    - Reproduction steps: Provide detailed operating steps to reproduce the issue
@@ -52,7 +52,7 @@ If you want to directly contribute code, you can follow the following process:
 1. Clone the project to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/Jetbrains-LicenseServer-Help.git
+git clone https://github.com/Blduu/Jetbrains-LicenseServer-Help.git
 cd Jetbrains-LicenseServer-Help
 ```
 
