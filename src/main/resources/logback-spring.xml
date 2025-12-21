@@ -17,11 +17,11 @@
     <!-- 按照每天生成日志文件 -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- 当前活动的日志文件 -->
-        <file>${LOG_HOME}/qiumo-help.log</file>
+        <file>${LOG_HOME}/BlueSky-Jetbrains-LicenseServer-Help.log</file>
         <!-- 按时间和大小滚动策略 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!-- 日志文件输出的文件名：按日期分割，同一天如果超过100MB则增加索引 -->
-            <FileNamePattern>${LOG_HOME}/qiumo-help.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+            <FileNamePattern>${LOG_HOME}/BlueSky-Jetbrains-LicenseServer-Help.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
             <!-- 日志文件保留天数 -->
             <MaxHistory>30</MaxHistory>
             <!-- 单个日志文件最大的大小 -->
