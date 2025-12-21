@@ -202,7 +202,7 @@ java -jar target/Jetbrains-LicenseServer-Help-1.0-SNAPSHOT.jar > server.log 2>&1
 
 如果您遇到了本 FAQ 中未提及的问题，可以通过以下方式获取帮助：
 
-- 在 GitHub 项目页面提交 [Issue](https://github.com/yourusername/Jetbrains-LicenseServer-Help/issues)
+- 在 GitHub 项目页面提交 [Issue](https://github.com/Blduu/Jetbrains-LicenseServer-Help/issues)
 - 查看项目文档
 - 联系项目维护者
 
@@ -226,5 +226,5 @@ java -jar target/Jetbrains-LicenseServer-Help-1.0-SNAPSHOT.jar > server.log 2>&1
 
 如果您有任何问题或建议，欢迎联系我们：
 
-- GitHub Issue: [https://github.com/yourusername/Jetbrains-LicenseServer-Help/issues](https://github.com/yourusername/Jetbrains-LicenseServer-Help/issues)
-- Email: your-email@example.com
+- GitHub Issue: [https://github.com/Blduu/Jetbrains-LicenseServer-Help/issues](https://github.com/yourusername/Jetbrains-LicenseServer-Help/issues)
+- Email: 3205480565@qq.com
