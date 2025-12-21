@@ -70,7 +70,7 @@ docker run -d -p 10768:10768 --name license-server-help your-image-name
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/Jetbrains-LicenseServer-Help.git
+git clone https://github.com/Blduu/Jetbrains-LicenseServer-Help.git
 
 # Enter the project directory
 cd Jetbrains-LicenseServer-Help
@@ -106,8 +106,8 @@ This project is licensed under the MIT License, see the [LICENSE](../LICENSE) fi
 If you encounter problems during use, please:
 
 1. Check the [Frequently Asked Questions](faq.md)
-2. Submit an [Issue](https://github.com/your-username/Jetbrains-LicenseServer-Help/issues)
-3. Send an email to: your-email@example.com
+2. Submit an [Issue](https://github.com/Blduu/Jetbrains-LicenseServer-Help/issues)
+3. Send an email to: 3205480565@qq.com
 
 ## 🙏 Acknowledgments
 
