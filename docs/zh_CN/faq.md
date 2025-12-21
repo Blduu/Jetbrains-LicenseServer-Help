@@ -81,13 +81,13 @@ docker run -d -p 10768:10768 --name license-server-help jetbrains-license-server
 - **Linux (iptables)**：
   
   ```bash
-iptables -A INPUT -p tcp --dport 10768 -j ACCEPT
+  iptables -A INPUT -p tcp --dport 10768 -j ACCEPT
   ```
 - **Linux (firewalld)**：
 
   ```bash
-firewall-cmd --add-port=10768/tcp --permanent
-firewall-cmd --reload
+  firewall-cmd --add-port=10768/tcp --permanent
+  firewall-cmd --reload
   ```
 
 ### 2.3 如何在不同操作系统上部署？
