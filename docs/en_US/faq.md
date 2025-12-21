@@ -202,7 +202,7 @@ Please refer to the [Contributing Guide](./contributing.md) document to learn ho
 
 If you encounter a problem not mentioned in this FAQ, you can get help through the following methods:
 
-- Submit an [Issue](https://github.com/yourusername/Jetbrains-LicenseServer-Help/issues) on the GitHub project page
+- Submit an [Issue](https://github.com/Blduu/Jetbrains-LicenseServer-Help/issues) on the GitHub project page
 - Check the project documentation
 - Contact the project maintainers
 
@@ -226,5 +226,5 @@ If you encounter a problem not mentioned in this FAQ, you can get help through t
 
 If you have any questions or suggestions, please feel free to contact us:
 
-- GitHub Issue: [https://github.com/yourusername/Jetbrains-LicenseServer-Help/issues](https://github.com/yourusername/Jetbrains-LicenseServer-Help/issues)
+- GitHub Issue: [https://github.com/Blduu/Jetbrains-LicenseServer-Help/issues](https://github.com/yourusername/Jetbrains-LicenseServer-Help/issues)
 - Email: your-email@example.com
