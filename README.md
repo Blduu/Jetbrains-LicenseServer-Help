@@ -82,7 +82,7 @@ docker run -d -p 10768:10768 --name license-server-help your-image-name
 
 ```bash
 # 克隆仓库
-git clone https://github.com/your-username/Jetbrains-LicenseServer-Help.git
+git clone https://github.com/Blduu/Jetbrains-LicenseServer-Help.git
 
 # 进入项目目录
 cd Jetbrains-LicenseServer-Help
@@ -118,8 +118,8 @@ java -jar target/Jetbrains-LicenseServer-Help.jar
 如果您在使用过程中遇到问题，请：
 
 1. 查看[常见问题解答](docs/zh_CN/faq.md)
-2. 提交[Issue](https://github.com/your-username/Jetbrains-LicenseServer-Help/issues)
-3. 发送邮件至：your-email@example.com
+2. 提交[Issue](https://github.com/Blduu/Jetbrains-LicenseServer-Help/issues)
+3. 发送邮件至：3205480565@qq.com
 
 ## 🙏 致谢
 
