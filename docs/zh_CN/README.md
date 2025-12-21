@@ -144,7 +144,7 @@ JetBrains License Server Help是一个基于Spring Boot开发的许可证服务�
 
    从GitHub Releases页面下载最新版本的JAR包：
    ```bash
-   wget https://github.com/your-username/Jetbrains-LicenseServer-Help/releases/latest/download/Jetbrains-LicenseServer-Help.jar
+   wget https://github.com/Blduu/Jetbrains-LicenseServer-Help/releases/latest/download/Jetbrains-LicenseServer-Help.jar
    ```
 
 2. **运行JAR包**
@@ -180,7 +180,7 @@ JetBrains License Server Help是一个基于Spring Boot开发的许可证服务�
 1. **克隆仓库**
 
    ```bash
-   git clone https://github.com/your-username/Jetbrains-LicenseServer-Help.git
+   git clone https://github.com/Blduu/Jetbrains-LicenseServer-Help.git
    ```
 
 2. **进入项目目录**
@@ -391,9 +391,9 @@ GET /zip/ja-netfilter
 
 ## 📞 联系方式
 
-- **项目地址**：https://github.com/your-username/Jetbrains-LicenseServer-Help
-- **Issue跟踪**：https://github.com/your-username/Jetbrains-LicenseServer-Help/issues
-- **邮件联系**：your-email@example.com
+- **项目地址**：https://github.com/Blduu/Jetbrains-LicenseServer-Help
+- **Issue跟踪**：https://github.com/Blduu/Jetbrains-LicenseServer-Help/issues
+- **邮件联系**：3205480565@qq.com
 
 ## 🙏 致谢
 
