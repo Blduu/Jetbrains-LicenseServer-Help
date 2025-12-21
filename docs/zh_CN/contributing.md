@@ -18,7 +18,7 @@
 
 如果您发现了 Bug 或有功能建议，可以通过以下步骤报告：
 
-1. 首先在 [Issue](https://github.com/yourusername/Jetbrains-LicenseServer-Help/issues) 页面搜索是否已经有人报告了相同的问题
+1. 首先在 [Issue](https://github.com/Blduu/Jetbrains-LicenseServer-Help/issues) 页面搜索是否已经有人报告了相同的问题
 2. 如果没有找到相关 Issue，请创建一个新的 Issue，包含以下信息：
    - 问题描述：清晰、详细地描述您遇到的问题
    - 复现步骤：提供详细的操作步骤来复现问题
@@ -52,7 +52,7 @@
 1. 克隆项目到本地：
 
 ```bash
-git clone https://github.com/yourusername/Jetbrains-LicenseServer-Help.git
+git clone https://github.com/Blduu/Jetbrains-LicenseServer-Help.git
 cd Jetbrains-LicenseServer-Help
 ```
 
