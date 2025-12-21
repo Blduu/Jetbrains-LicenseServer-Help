@@ -34,7 +34,7 @@
 使用 Git 克隆项目代码到本地：
 
 ```bash
-git clone https://github.com/your-username/Jetbrains-LicenseServer-Help.git
+git clone https://github.com/Blduu/Jetbrains-LicenseServer-Help.git
 cd Jetbrains-LicenseServer-Help
 ```
 
