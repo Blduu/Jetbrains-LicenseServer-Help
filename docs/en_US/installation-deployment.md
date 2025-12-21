@@ -34,7 +34,7 @@ You can change the port by modifying the `server.port` configuration item in the
 Use Git to clone the project code to your local machine:
 
 ```bash
-git clone https://github.com/your-username/Jetbrains-LicenseServer-Help.git
+git clone https://github.com/Blduu/Jetbrains-LicenseServer-Help.git
 cd Jetbrains-LicenseServer-Help
 ```
 
