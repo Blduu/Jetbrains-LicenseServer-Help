@@ -104,7 +104,7 @@ This document provides detailed information about all API interfaces of the JetB
 
 ```json
 {
-  "licenseName": "QiuMo Technology",
+  "licenseName": "BlueSky Technology",
   "assigneeName": "Zhang San",
   "expiryDate": "2025-12-31",
   "productCode": "II,PS,WS,RM,PCC,PC,CLN"
@@ -445,7 +445,7 @@ curl -X GET http://localhost:10768/api/plugins
 ```bash
 curl -X POST http://localhost:10768/license-code/generate \
   -H "Content-Type: application/json" \
-  -d '{"licenseName": "QiuMo Technology", "assigneeName": "Zhang San", "expiryDate": "2025-12-31"}'
+  -d '{"licenseName": "BlueSky Technology", "assigneeName": "Zhang San", "expiryDate": "2025-12-31"}'
 ```
 
 #### 2.1.4 Download ja-netfilter Tool
