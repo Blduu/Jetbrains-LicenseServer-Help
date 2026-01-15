@@ -114,10 +114,10 @@ public class CertificateContextHolder {
     private static final String LICENSE_SERVER_CA_DN = "CN=License Servers CA";
 
     /** 应用程序主体DN */
-    private static final String APP_SUBJECT_DN = "CN=QiuMo-Jetbrains-Help";
+    private static final String APP_SUBJECT_DN = "CN=BlueSky-Jetbrains-Help";
 
     /** 许可证服务器域名 */
-    private static final String LICENSE_SERVER_DOMAIN = "qiumo.lsrv.jetbrains.com";
+    private static final String LICENSE_SERVER_DOMAIN = "bluesky.lsrv.jetbrains.com";
 
     /** 许可证服务器主体DN */
     private static final String LICENSE_SERVER_SUBJECT_DN = "CN=" + LICENSE_SERVER_DOMAIN;
