@@ -1,0 +1,471 @@
+# Usage Guide
+
+This document provides detailed instructions on how to use the JetBrains License Server Help project, including Web management interface operations, JetBrains IDE configuration, advanced usage, and common troubleshooting.
+
+## 1. Quick Start
+
+### 1.1 Start the Service
+
+After starting the service according to the steps in the [Installation and Deployment Guide](./installation-deployment.md), you can access the service through the following methods:
+
+- **Web Management Interface**: `http://localhost:10768/`
+- **License Server API**: `http://localhost:10768/rpc/ping.action`
+
+### 1.2 Verify Service Status
+
+Access `http://localhost:10768/rpc/ping.action` in your browser. If you see an XML response similar to the following, the service is running normally:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<methodResponse>
+    <params>
+        <param>
+            <value>
+                <struct>
+                    <member>
+                        <name>status</name>
+                        <value>
+                            <string>UP</string>
+                        </value>
+                    </member>
+                </struct>
+            </value>
+        </param>
+    </params>
+</methodResponse>
+```
+
+## 2. Web Management Interface
+
+The Web management interface is the primary way for users to interact with the system, providing an intuitive operation interface for managing licenses, products, plugins, and more.
+
+### 2.1 Access the Management Interface
+
+Enter `http://localhost:10768/` in your browser to access the login page of the Web management interface.
+
+### 2.2 Log in to the System
+
+**Note**: Currently, the system uses simple authentication by default, with username `admin` and password `admin`. It is recommended to change the default password in production environments.
+
+1. Enter the username and password on the login page
+2. Click the "Login" button to enter the management interface
+
+### 2.3 Dashboard
+
+After logging in, you will first see the dashboard page, which displays key information about the system:
+
+- **System Status**: Shows service startup time, version information, and current status
+- **License Statistics**: Shows the number of currently active licenses and usage
+- **Product Information**: Shows the number of managed JetBrains products
+- **Plugin Information**: Shows the number of managed plugins
+- **Server Load**: Shows current system CPU, memory, and disk usage
+
+### 2.4 License Management
+
+The license management page allows you to view and manage current license information:
+
+#### 2.4.1 View License List
+
+Click "License Management" in the left menu to view all currently valid license information:
+
+- **License ID**: Unique identifier
+- **Product Name**: Name of the JetBrains product using the license
+- **User Information**: Information about the user using the license
+- **Start Time**: License effective time
+- **End Time**: License expiration time
+- **Status**: Current status of the license (active/expired/released)
+
+#### 2.4.2 Release License
+
+To manually release a license, click the corresponding "Release" button.
+
+#### 2.4.3 Export License Records
+
+Click the "Export Records" button to export license usage records as a CSV file.
+
+### 2.5 Product Management
+
+The product management page displays collected JetBrains product information:
+
+#### 2.5.1 View Product List
+
+Click "Product Management" in the left menu to view all managed JetBrains products:
+
+- **Product Name**: JetBrains product name (e.g., IntelliJ IDEA Ultimate)
+- **Product Code**: Unique identifier of the product (e.g., IDEA)
+- **Version Information**: Latest version of the product
+- **Release Date**: Product release date
+- **Description**: Brief description of the product
+
+#### 2.5.2 Refresh Product Information
+
+Click the "Refresh Product Information" button to manually trigger product information update.
+
+#### 2.5.3 Search Products
+
+Use the search box at the top of the page to search for specific products by product name or code.
+
+### 2.6 Plugin Management
+
+The plugin management page displays collected JetBrains plugin information:
+
+#### 2.6.1 View Plugin List
+
+Click "Plugin Management" in the left menu to view all managed plugins:
+
+- **Plugin Name**: JetBrains plugin name
+- **Plugin ID**: Unique identifier of the plugin
+- **Version Information**: Latest version of the plugin
+- **Download Count**: Number of plugin downloads
+- **Rating**: User rating of the plugin
+- **Release Date**: Plugin release date
+
+#### 2.6.2 Refresh Plugin Information
+
+Click the "Refresh Plugin Information" button to manually trigger plugin information update.
+
+#### 2.6.3 Search Plugins
+
+Use the search box at the top of the page to search for specific plugins by plugin name or ID.
+
+### 2.7 Certificate Management
+
+The certificate management page allows you to manage the RSA key pair and X.509 certificate generated by the system:
+
+#### 2.7.1 View Certificate Information
+
+Click "Certificate Management" in the left menu to view detailed information about the current certificate:
+
+- **Certificate Type**: Type of the certificate (e.g., X.509)
+- **Certificate Validity Period**: Start and end time of the certificate
+- **Issuer**: Issuer information of the certificate
+- **Subject**: Subject information of the certificate
+- **Key Length**: Length of the RSA key pair
+
+#### 2.7.2 Regenerate Certificate
+
+Click the "Regenerate Certificate" button to generate a new RSA key pair and X.509 certificate.
+
+**Note**: Regenerating the certificate will invalidate existing licenses, please proceed with caution.
+
+#### 2.7.3 Download Certificate
+
+Click the "Download Certificate" button to download the current certificate as a PEM format file.
+
+### 2.8 Ja-netfilter Management
+
+The Ja-netfilter management page allows you to configure and download the ja-netfilter proxy tool:
+
+#### 2.8.1 Configure Proxy
+
+In the "Proxy Configuration" section, you can set the following parameters:
+
+- **Proxy Address**: Address of the ja-netfilter proxy
+- **Proxy Port**: Port of the ja-netfilter proxy
+- **Filter Rules**: Custom filter rules
+
+#### 2.8.2 Download Proxy Tool
+
+Click the "Download Proxy Tool" button to download the configured ja-netfilter tool package.
+
+#### 2.8.3 View Usage Instructions
+
+Click the "Usage Instructions" button to view the detailed usage guide for the ja-netfilter tool.
+
+### 2.9 System Settings
+
+The system settings page allows you to modify basic system configurations:
+
+#### 2.9.1 Server Settings
+
+- **Server Port**: Modify the listening port of the service
+- **Timeout Settings**: Modify request timeout time
+
+#### 2.9.2 Plugin Settings
+
+- **Auto Refresh**: Enable/disable automatic refresh of plugin information
+- **Refresh Interval**: Set the automatic refresh interval for plugin information
+- **Concurrent Thread Count**: Set the number of concurrent threads for plugin information refresh
+
+#### 2.9.3 Security Settings
+
+- **Change Password**: Modify the administrator password
+- **Enable HTTPS**: Enable/disable HTTPS protocol
+
+## 3. JetBrains IDE Configuration
+
+To configure JetBrains IDE to use this license server, follow these steps:
+
+### 3.1 Open License Configuration
+
+1. Start JetBrains IDE (taking IntelliJ IDEA as an example)
+2. On the welcome screen, click "Configure" → "Manage License"
+3. Or in the IDE, click "Help" → "Register"
+
+### 3.2 Select License Server
+
+1. In the registration window, select "License server"
+2. Enter the license server address in the "License server address" input box:
+   ```
+   http://your-server-ip:10768
+   ```
+3. Click the "Activate" button
+
+### 3.3 Verify Activation Status
+
+If configured correctly, the IDE will display a success message and show the license validity period.
+
+### 3.4 Configure Multiple IDEs
+
+For teams with multiple members, each team member needs to perform the same configuration in their respective IDEs.
+
+## 4. Advanced Usage
+
+### 4.1 API Calls
+
+The system provides RESTful API interfaces that can be used for automated management and integration into other systems.
+
+#### 4.1.1 Get System Status
+
+```bash
+curl http://localhost:10768/api/status
+```
+
+**Response Example**:
+
+```json
+{
+  "status": "UP",
+  "version": "1.0.0",
+  "startTime": "2023-10-01T12:00:00Z",
+  "licenseCount": 10,
+  "productCount": 25,
+  "pluginCount": 1000
+}
+```
+
+#### 4.1.2 Get Product List
+
+```bash
+curl http://localhost:10768/api/products
+```
+
+**Response Example**:
+
+```json
+{
+  "products": [
+    {
+      "name": "IntelliJ IDEA Ultimate",
+      "code": "IDEA",
+      "version": "2023.2",
+      "releaseDate": "2023-07-27"
+    },
+    {
+      "name": "PyCharm Professional",
+      "code": "PY",
+      "version": "2023.2",
+      "releaseDate": "2023-07-27"
+    }
+  ],
+  "total": 25
+}
+```
+
+#### 4.1.3 Get Plugin List
+
+```bash
+curl http://localhost:10768/api/plugins?page=1&size=10
+```
+
+**Response Example**:
+
+```json
+{
+  "plugins": [
+    {
+      "id": "com.intellij.java",
+      "name": "Java",
+      "version": "232.8660.185",
+      "downloads": 1000000,
+      "rating": 4.8
+    }
+  ],
+  "total": 1000,
+  "page": 1,
+  "size": 10
+}
+```
+
+### 4.2 Command Line Operations
+
+The system supports configuration and operation through command line parameters.
+
+#### 4.2.1 Custom Configuration Startup
+
+```bash
+java -jar Jetbrains-LicenseServer-Help.jar \
+  --server.port=8080 \
+  --server.plugins.refresh-enabled=true \
+  --server.plugins.page-size=30
+```
+
+#### 4.2.2 Use Environment Variables Configuration
+
+```bash
+export SERVER_PORT=8080
+export SERVER_PLUGINS_REFRESH_ENABLED=true
+export SERVER_PLUGINS_PAGE_SIZE=30
+
+java -jar Jetbrains-LicenseServer-Help.jar
+```
+
+### 4.3 Custom Configuration
+
+You can make more detailed configurations by modifying the `src/main/resources/application.yml` file:
+
+```yaml
+spring:
+  application:
+    name: BlueSky-Jetbrains-LicenseServer-Help
+xbase64:
+  domain: BlueSky.cc
+server:
+  port: 10768
+  tomcat:
+    threads:
+      max: 200
+    connection-timeout: 20000
+  plugins:
+    refresh-enabled: true
+    page-size: 20
+    thread-count: 20
+    timeout: 30000
+    refresh-interval: 3600000
+
+logging:
+  level:
+    com.bluesky: INFO
+    org.springframework: WARN
+```
+
+## 5. Common Troubleshooting
+
+### 5.1 IDE Cannot Connect to License Server
+
+**Problem**: IDE shows that it cannot connect to the license server
+
+**Solution**:
+
+1. Check if the server is running
+   ```bash
+   curl http://localhost:10768/rpc/ping.action
+   ```
+
+2. Check if the firewall/security group has opened port 10768
+
+3. Check if the license server address entered in the IDE is correct
+   - Ensure the address format is: `http://your-server-ip:10768`
+   - Ensure the IP address or domain name is correct
+
+### 5.2 License Activation Failed
+
+**Problem**: IDE shows that license activation failed
+
+**Solution**:
+
+1. Check server logs for error messages
+   ```bash
+   tail -f server.log
+   ```
+
+2. Check if the IDE network connection is normal
+
+3. Try restarting the license server
+
+### 5.3 Incomplete Plugin Information
+
+**Problem**: The plugin information displayed in the Web interface is incomplete or outdated
+
+**Solution**:
+
+1. Manually refresh plugin information
+   - Click "Refresh Plugin Information" on the plugin management page of the Web management interface
+
+2. Check if the network connection is normal
+
+3. Adjust plugin configuration parameters
+   ```yaml
+   server:
+     plugins:
+       refresh-enabled: true
+       page-size: 20
+       thread-count: 20
+       timeout: 60000
+   ```
+
+### 5.4 Service Performance Issues
+
+**Problem**: License server responds slowly
+
+**Solution**:
+
+1. Check server resource usage
+   ```bash
+   top  # Linux
+   tasklist  # Windows
+   ```
+
+2. Increase server resources (CPU, memory)
+
+3. Optimize configuration parameters
+   ```yaml
+   server:
+     tomcat:
+       threads:
+         max: 500
+     plugins:
+       thread-count: 10  # Reduce concurrent threads
+   ```
+
+## 6. Best Practices
+
+### 6.1 Production Environment Configuration
+
+1. **Change Default Password**: Must change the default administrator password in production environments
+
+2. **Enable HTTPS**: Recommend enabling HTTPS protocol in production environments
+
+3. **Backup Data**: Regularly backup certificates and configuration files
+
+4. **Monitor Service**: Deploy monitoring tools (such as Prometheus + Grafana) to monitor service status
+
+### 6.2 Performance Optimization
+
+1. **Configure Thread Count Reasonably**: Adjust the number of concurrent threads for plugin refresh according to server performance
+
+2. **Enable Caching**: Enable data caching to reduce database access
+
+3. **Regular Cleaning**: Regularly clean up expired license records
+
+### 6.3 Security Recommendations
+
+1. **Restrict Access**: Configure firewall/security group to allow access only from specific IPs
+
+2. **Regular Updates**: Update systems and dependency libraries in a timely manner
+
+3. **Audit Logs**: Enable audit logs to record all important operations
+
+## 7. Summary
+
+This document provides detailed instructions on using the JetBrains License Server Help project, including:
+
+- ✅ Operations of various functions in the Web management interface
+- ✅ Configuration methods for JetBrains IDE
+- ✅ Advanced usage (API calls, command line operations, custom configuration)
+- ✅ Common troubleshooting
+- ✅ Best practice recommendations
+
+With the guidance of this document, you can easily get started with the JetBrains License Server Help project and fully utilize its functions.
+
+If you encounter any problems during use, please refer to the [FAQ](./faq.md) document or submit an Issue for assistance.

@@ -1,0 +1,93 @@
+# --- IDE ---
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+.factorypath
+.sts4-cache
+.springBeans
+
+# VS Code / Cursor
+.vscode/*
+!.vscode/extensions.json
+.cursor/
+
+# --- Build output ---
+target/
+bin/
+build/
+out/
+dist/
+
+# --- Maven ---
+*.versionsBackup
+
+# --- Gradle (if mixed) ---
+.gradle/
+
+# --- Certificates & keys ---
+# Ignore generated / secret material; allow checked-in bootstrap roots only.
+**/*.pem
+**/*.cer
+**/*.p12
+**/*.jks
+**/*.keystore
+**/*.truststore
+**/*.key
+!src/main/resources/external/certificate/code-root.key
+!src/main/resources/external/certificate/server-root.key
+
+# --- Logs & diagnostics ---
+logs/
+*.log
+hs_err_pid*
+replay_pid*
+*.hprof
+
+# --- Spring: local overrides ---
+**/application-local.yml
+**/application-dev.yml
+**/application-prod.yml
+**/application-*.local.yml
+**/*.properties.local
+
+# --- Environment ---
+.env
+.env.local
+.env.*.local
+
+# --- OS ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# --- Temp & editor ---
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+*.bak
+*.orig
+*.rej
+
+# --- Node (if tooling: frontend, linters) ---
+node_modules/
+jspm_packages/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+coverage/
+.nyc_output/
+
+# --- Misc ---
+.apt_generated
