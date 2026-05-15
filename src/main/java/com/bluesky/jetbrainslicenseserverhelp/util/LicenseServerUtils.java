@@ -3,7 +3,7 @@ package com.bluesky.jetbrainslicenseserverhelp.util;
 import cn.hutool.core.codec.Base64;
 import cn.hutool.core.io.IoUtil;
 import cn.hutool.crypto.PemUtil;
-import com.bluesky.jetbrainslicenseserverhelp.context.CertificateContextHolder;
+import com.bluesky.jetbrainslicenseserverhelp.context.certificate.CertificateConfig;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
 import java.security.PrivateKey;
@@ -128,11 +128,11 @@ public class LicenseServerUtils {
         String contentToSign = timeStamp + ":" + machineId;
         
         // 获取私钥并进行数字签名
-        PrivateKey privateKey = PemUtil.readPemPrivateKey(IoUtil.toStream(CertificateContextHolder.privateKeyFile()));
+        PrivateKey privateKey = PemUtil.readPemPrivateKey(IoUtil.toStream(CertificateConfig.privateKeyFile));
         String signature = signContent(contentToSign, privateKey, "SHA1withRSA");
         
         // 获取服务器子证书并转换为Base64
-        String certificateBase64 = Base64.encode(PemUtil.readPem(IoUtil.toStream(CertificateContextHolder.serverChildCrtFile())));
+        String certificateBase64 = Base64.encode(PemUtil.readPem(IoUtil.toStream(CertificateConfig.serverChildCrtFile)));
         
         // 组装最终的确认时间戳
         String confirmationStamp = timeStamp + ":" + machineId + ":" + "SHA1withRSA" + ":" + signature + ":" + certificateBase64;
@@ -167,11 +167,11 @@ public class LicenseServerUtils {
         log.debug("开始生成租约签名 - 租约内容: {}", leaseContent);
         
         // 获取私钥并使用SHA512withRSA算法进行签名
-        PrivateKey privateKey = PemUtil.readPemPrivateKey(IoUtil.toStream(CertificateContextHolder.privateKeyFile()));
+        PrivateKey privateKey = PemUtil.readPemPrivateKey(IoUtil.toStream(CertificateConfig.privateKeyFile));
         String signature = signContent(leaseContent, privateKey, "SHA512withRSA");
         
         // 获取授权码证书并转换为Base64
-        String certificateBase64 = Base64.encode(PemUtil.readPem(IoUtil.toStream(CertificateContextHolder.codeCrtFile())));
+        String certificateBase64 = Base64.encode(PemUtil.readPem(IoUtil.toStream(CertificateConfig.codeCrtFile)));
         
         // 按照格式组装租约签名
         String leaseSignature = "SHA512withRSA-" + signature + "-" + certificateBase64;
@@ -233,11 +233,11 @@ public class LicenseServerUtils {
         log.debug("XML序列化完成 - XML长度: {} 字符", xmlContent.length());
         
         // 获取私钥并对XML内容进行数字签名
-        PrivateKey privateKey = PemUtil.readPemPrivateKey(IoUtil.toStream(CertificateContextHolder.privateKeyFile()));
+        PrivateKey privateKey = PemUtil.readPemPrivateKey(IoUtil.toStream(CertificateConfig.privateKeyFile));
         String signature = signContent(xmlContent, privateKey, "SHA1withRSA");
         
         // 获取服务器子证书并转换为Base64
-        String certificateBase64 = Base64.encode(PemUtil.readPem(IoUtil.toStream(CertificateContextHolder.serverChildCrtFile())));
+        String certificateBase64 = Base64.encode(PemUtil.readPem(IoUtil.toStream(CertificateConfig.serverChildCrtFile)));
         
         // 构建带有签名注释的完整XML
         String signedXml = "<!-- SHA1withRSA-" + signature + "-" + certificateBase64 + " -->\n" + xmlContent;
