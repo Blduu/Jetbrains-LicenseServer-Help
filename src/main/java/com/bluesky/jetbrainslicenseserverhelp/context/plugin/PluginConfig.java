@@ -1,11 +1,16 @@
 package com.bluesky.jetbrainslicenseserverhelp.context.plugin;
 
 import cn.hutool.extra.spring.SpringUtil;
+import com.bluesky.jetbrainslicenseserverhelp.context.plugin.model.PluginCache;
+import com.bluesky.jetbrainslicenseserverhelp.context.plugin.model.PluginUpdateTimeCache;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.env.Environment;
+
+import java.util.List;
+import java.util.concurrent.ExecutorService;
 
 /**
  * 插件配置管理类
@@ -35,6 +40,19 @@ public class PluginConfig {
 
     /** 插件信息缓存文件路径 */
     public static final String PLUGIN_JSON_FILE_NAME = "external/data/plugin.json";
+
+    /** 插件更新时间信息缓存文件路径 */
+    public static final String PLUGIN_UPDATE_TIME_JSON_FILE_NAME = "external/data/pluginUpdateTime.json";
+
+    // ==================== 静态字段 ====================
+
+    /** 插件信息缓存列表，存储所有已加载的付费插件信息 */
+    public static List<PluginCache> pluginCacheList;
+    /** 插件变更时间信息缓存列表 */
+    public static List<PluginUpdateTimeCache> pluginUpdateTimeCacheList;
+
+    /** 线程池，用于并发请求插件数据 */
+    public static ExecutorService executorService;
 
     // ==================== 配置字段 ====================
 
@@ -78,10 +96,10 @@ public class PluginConfig {
         try {
             Environment environment = SpringUtil.getBean(Environment.class);
 
-            this.refreshEnabled = environment.getProperty("help.plugins.refresh-enabled", Boolean.class, true);
-            this.pageSize = environment.getProperty("help.plugins.page-size", Integer.class, 20);
-            this.threadCount = environment.getProperty("help.plugins.thread-count", Integer.class, 5);
-            this.timeout = environment.getProperty("help.plugins.timeout", Integer.class, 30000);
+            this.refreshEnabled = environment.getProperty("server.plugins.refresh-enabled", Boolean.class, true);
+            this.pageSize = environment.getProperty("server.plugins.page-size", Integer.class, 20);
+            this.threadCount = environment.getProperty("server.plugins.thread-count", Integer.class, 5);
+            this.timeout = environment.getProperty("server.plugins.timeout", Integer.class, 30000);
 
             log.debug("插件配置加载完成 -> 刷新启用: {}, 分页大小: {}, 线程数: {}, 超时: {}ms",
                     refreshEnabled, pageSize, threadCount, timeout);
@@ -100,12 +118,5 @@ public class PluginConfig {
         this.pageSize = 20;
         this.threadCount = 20;
         this.timeout = 30000;
-    }
-
-    /**
-     * 重新加载配置
-     */
-    public void reload() {
-        loadConfig();
     }
 }

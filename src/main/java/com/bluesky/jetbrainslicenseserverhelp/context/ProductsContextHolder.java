@@ -6,13 +6,13 @@ import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.json.JSONUtil;
 import com.bluesky.jetbrainslicenseserverhelp.util.FileTools;
-import java.util.ArrayList;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -170,10 +170,16 @@ public class ProductsContextHolder {
         /** 产品显示名称，如 "IntelliJ IDEA Ultimate" */
         private String name;
 
+        /** 产品简称，如 "ii" */
+        private String shortName;
+
         /** 产品代码，单个或多个用逗号分隔，如 "II" 或 "II,IC" */
         private String productCode;
 
         /** CSS图标类名，用于前端界面显示产品图标 */
         private String iconClass;
+
+        /** 产品图标 */
+        private String icon;
     }
 }

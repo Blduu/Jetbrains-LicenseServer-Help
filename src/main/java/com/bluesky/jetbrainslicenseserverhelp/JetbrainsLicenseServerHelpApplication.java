@@ -4,11 +4,11 @@ import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.thread.ThreadUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import com.bluesky.jetbrainslicenseserverhelp.context.AgentContextHolder;
-import com.bluesky.jetbrainslicenseserverhelp.context.CertificateContextHolder;
 import com.bluesky.jetbrainslicenseserverhelp.context.PluginsContextHolder;
 import com.bluesky.jetbrainslicenseserverhelp.context.ProductsContextHolder;
+import com.bluesky.jetbrainslicenseserverhelp.context.certificate.CertificateContextHolder;
 import com.bluesky.jetbrainslicenseserverhelp.context.plugin.PluginConfig;
-import java.net.InetAddress;
+import jakarta.annotation.PreDestroy;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -19,13 +19,10 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import jakarta.annotation.PreDestroy;
+import java.net.InetAddress;
 
 /**
  * QiuMo JetBrains Help 应用程序主入口类
